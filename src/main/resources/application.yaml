@@ -1,0 +1,9 @@
+oxr:
+  app_id: 512a41f884f14905b99fafdba58a8f71
+  url: https://openexchangerates.org/api/
+  base: USD
+#    //Because in free license OER you can use ONLY dollars like base currency
+giphy:
+  api_key: TDJNNdRYueg2ttCmmDFBAAVhMEHQZKcL
+  url: https://api.giphy.com/v1/gifs/random
+
