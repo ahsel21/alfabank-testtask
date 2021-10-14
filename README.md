@@ -21,7 +21,7 @@ Docker:
 
 Корректный вывод должен выглядеть следующим образом:
 
-![cmdCorrecOutput](screens/cmdCorrectOutput.png)
+![cmdCorrecOutput](https://github.com/ahsel21/alfabank-testtask/blob/master/src/main/resources/screens/cmdCorrectOutput.png)
 
 ### Использование
 
@@ -31,11 +31,11 @@ Docker:
 
 Корректный ответ браузера должен выглядеть следующим образом:
 
-![homePage](screens/homePage.png)
+![homePage](https://github.com/ahsel21/alfabank-testtask/blob/master/src/main/resources/screens/homePage.png)
 
 Нужно ввести код валюты (Например "USD") и нажать кнопку "Enter", корректный ответ должен выглядеть следующим образом:
 
-![USD](screens/USD.png)
+![USD](https://github.com/ahsel21/alfabank-testtask/blob/master/src/main/resources/screens/USD.png)
 
 ### Контакты
 
