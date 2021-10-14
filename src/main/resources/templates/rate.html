@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="d-flex flex-column h-100">
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="home" data-target="home"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="input-group mr-auto" action="/rate" method="post">
+            <input type="text" name="inputCurrency" class="form-control" placeholder="Например EUR..." aria-label="inputCurrency"
+                   aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="input-group-text" id="basic-addon2" type="submit">Enter</button>
+            </div>
+        </form>
+    </nav>
+</header>
+<div class="container mt-5">
+    <center>
+    <h1>Курс одного <span th:text="${currency}"></span> в рублях:</h1>
+    <h1>Сейчас: <span th:text="${now}"></span></h1>
+    <h1>Вчера: <span th:text="${yesterday}"></span></h1>
+    <h1><span th:text="${tag}"></span></h1>
+    </center>
+</div>
+<div>
+    <center>
+    <img th:src="${link}" width="40%" />
+    </center>
+</div>
+</body>
+</html>
