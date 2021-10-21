@@ -1,16 +1,19 @@
 package com.example.alfabanktesttask.controllers;
 
-import com.example.alfabanktesttask.service.CurrencyService;
+import com.example.alfabanktesttask.DTO.CalculateDTO;
+import com.example.alfabanktesttask.service.CalculateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 @RequiredArgsConstructor
 public class MainController {
-
-    private final CurrencyService currencyService;
+    private final CalculateService calculateService;
 
     @RequestMapping("/")
     public String welcome() {
@@ -19,15 +22,8 @@ public class MainController {
 
     @PostMapping(path = "/rate")
     public String count(@RequestParam String inputCurrency, Model model) {
-        currencyService.calculate(inputCurrency);
-        if (inputCurrency.equals(currencyService.getCurrency())) {
-            model.addAttribute("link", currencyService.getLink());
-            model.addAttribute("currency", inputCurrency);
-            model.addAttribute("now", currencyService.getLatest());
-            model.addAttribute("yesterday", currencyService.getYesterday());
-            model.addAttribute("tag", currencyService.getResultTag());
-            return "rate";
-        }
-        return "home";
+        CalculateDTO calculateDTO = calculateService.calculate(inputCurrency);
+        model.addAttribute("calculateDTO", calculateDTO);
+        return "rate";
     }
 }
