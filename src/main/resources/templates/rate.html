@@ -24,15 +24,15 @@
 </header>
 <div class="container mt-5">
     <center>
-    <h1>Курс одного <span th:text="${currency}"></span> в рублях:</h1>
-    <h1>Сейчас: <span th:text="${now}"></span></h1>
-    <h1>Вчера: <span th:text="${yesterday}"></span></h1>
-    <h1><span th:text="${tag}"></span></h1>
+    <h1>Курс одного <span th:text="${calculateDTO.currency}"></span> в рублях:</h1>
+    <h1>Сейчас: <span th:text="${calculateDTO.latest}"></span></h1>
+    <h1>Вчера: <span th:text="${calculateDTO.yesterday}"></span></h1>
+    <h1><span th:text="${calculateDTO.tag}"></span></h1>
     </center>
 </div>
 <div>
     <center>
-    <img th:src="${link}" width="40%" />
+    <img th:src="${calculateDTO.link}" width="40%" />
     </center>
 </div>
 </body>

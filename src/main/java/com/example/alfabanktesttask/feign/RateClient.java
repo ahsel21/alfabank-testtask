@@ -7,11 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name = "rateService", url = "${oxr.url}")
-public interface RateService {
-    @RequestMapping(method = RequestMethod.GET, path = "/latest.json")
-    String getLatest(@RequestParam String app_id, @RequestParam String symbols,
-                     @RequestParam String base);
-
+public interface RateClient {
     @RequestMapping(method = RequestMethod.GET, path = "historical/{date}.json")
     String getHistorical(@RequestParam String app_id, @PathVariable String date,
                          @RequestParam String symbols, @RequestParam String base);
