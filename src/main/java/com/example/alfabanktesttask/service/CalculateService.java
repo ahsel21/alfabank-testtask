@@ -16,8 +16,10 @@ public class CalculateService {
     private final CalculateProperty calculateProperty;
 
     public CalculateDTO calculate(String currency) {
-        double latest = currencyService.getExchangeRateHistorical(calculateProperty.getBase(), currency, LocalDate.now(ZoneId.of("UTC"))).getLatest();
-        double yesterday = currencyService.getExchangeRateHistorical(calculateProperty.getBase(), currency, LocalDate.now(ZoneId.of("UTC")).minusDays(1)).getLatest();
+        double latest = currencyService.getExchangeRateHistorical(
+                calculateProperty.getBase(), currency, LocalDate.now(ZoneId.of("UTC"))).getLatest();
+        double yesterday = currencyService.getExchangeRateHistorical(
+                calculateProperty.getBase(), currency, LocalDate.now(ZoneId.of("UTC")).minusDays(1)).getLatest();
         String tag = latest < yesterday ? "broke" : "rich";
         String gifLink = gifService.getGifDTO(tag).getGifLink();
         return new CalculateDTO(currency, latest, yesterday, tag, gifLink);

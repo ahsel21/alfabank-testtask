@@ -28,14 +28,16 @@ public class CurrencyService {
             }
             ExchangeRateDTO baseExchangeRateDTO = getExchangeRateHistorical(base, date);
             ExchangeRateDTO symbolsExchangeRateDTO = getExchangeRateHistorical(symbols, date);
-            return new ExchangeRateDTO(baseExchangeRateDTO.getLatest() / symbolsExchangeRateDTO.getLatest(), base, symbols, date);
+            return new ExchangeRateDTO(baseExchangeRateDTO.getLatest()
+                    / symbolsExchangeRateDTO.getLatest(), base, symbols, date);
         } catch (FeignException.BadRequest e) {
             throw new CurrencyNotFoundException();
         }
     }
 
     private ExchangeRateDTO getExchangeRateHistorical(String symbols, LocalDate date) {
-        String response = rateClient.getHistorical(oXRProperty.getAppId(), date.toString(), symbols, oXRProperty.getBase());
+        String response = rateClient.getHistorical
+                (oXRProperty.getAppId(), date.toString(), symbols, oXRProperty.getBase());
         Gson gson = new Gson();
         JsonObject jsonObject = gson.fromJson(response, JsonObject.class).getAsJsonObject("rates");
 
